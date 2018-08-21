@@ -56,7 +56,7 @@ class App extends Component{
         'Tomorrow': filterList
       });
     }else if (day === 'Day_After_Tomorrow'){
-      let filterList = this.state.Day_After_Tomorrow.filter((elem, i) == {
+      let filterList = this.state.Day_After_Tomorrow.filter((elem, i) => {
         if(i === index){
           return false;
         }
