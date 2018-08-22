@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom'
+import './App.css';
+import 'hack';
+import SimpleStorage from 'react-simple-storage'
 
-import { Header } from './Components/Header';
-import { Textbox } from './Components/Textbox';
-import { DisplayToday, DisplayTomorrow, DisplayDayAfterTomorrow } from './Components/Display';
+import Header from './Components/Header';
+import Textbox from './Components/Textbox';
+import DisplayToday from './Components/DisplayToday';
+import DisplayTomorrow from './Components/DisplayTomorrow';
+import DisplayDayAfterTomorrow from './Components/DisplayDayAfterTomorrow';
 
 class App extends Component{
   constructor(props){
@@ -73,13 +77,14 @@ class App extends Component{
   render(){
     return(
       <div>
+        <SimpleStorage parent={this} />
         <Header nam={this.state.username} />
         <Textbox updateEntry={this.updateEntry} />
         <hr />
         <div className="grid">
           <DisplayToday items={this.state.Today} deleteItem={this.deleteEntry} />
           <DisplayTomorrow items={this.state.Tomorrow} deleteItem={this.deleteEntry} />
-          <DisplayDay_After_Tomorrow items={this.state.Day_After_Tomorrow} deleteItem={this.deleteEntry} />
+          <DisplayDayAfterTomorrow items={this.state.Day_After_Tomorrow} deleteItem={this.deleteEntry} />
         </div>
       </div>
     );
